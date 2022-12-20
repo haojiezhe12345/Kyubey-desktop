@@ -1,0 +1,34 @@
+﻿<Window x:Class="QB_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QB_WPF"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        mc:Ignorable="d"
+        Title="QB" Height="200" Width="300" WindowStyle="None" AllowsTransparency="True" Topmost="True" LocationChanged="Window_LocationChanged" MouseLeftButtonDown="Window_MouseLeftButtonDown" MouseLeftButtonUp="Window_MouseLeftButtonUp" MouseEnter="Window_MouseEnter" MouseLeave="Window_MouseLeave">
+    <Window.Background>
+        <SolidColorBrush Opacity="0" Color="White"/>
+    </Window.Background>
+    <Grid>
+        <Image x:Name="img" gif:ImageBehavior.AnimatedSource="/QB_res/QB.gif" >
+            <Image.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="关于作者">
+                        <MenuItem Header="B站: 浩劫者12345" Click="MenuItem_Click"/>
+                        <MenuItem Header="Github Repo" Click="MenuItem_Click_1"/>
+                    </MenuItem>
+                    <MenuItem x:Name="idleList" Header="待机动作" GotFocus="MenuItem_GotFocus">
+                        <MenuItem/>
+                    </MenuItem>
+                    <MenuItem Header="调整大小" Click="resize"/>
+                    <MenuItem Header="自定义表情" Click="openFolder"/>
+                    <MenuItem x:Name="chkMute" Header="静音" Click="mute" IsCheckable="True"/>
+                    <MenuItem Header="关闭" Click="exit"/>
+                </ContextMenu>
+            </Image.ContextMenu>
+        </Image>
+        <MediaElement x:Name="player" LoadedBehavior="Manual" MediaEnded="player_MediaEnded" Visibility="Hidden" MediaOpened="player_MediaOpened" />
+        <Grid x:Name="GridResize" Background="#55000000" Visibility="Hidden" />
+    </Grid>
+</Window>
