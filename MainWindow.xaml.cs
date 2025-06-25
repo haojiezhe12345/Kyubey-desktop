@@ -154,6 +154,11 @@ namespace QB_WPF
             player.IsMuted = chkMute.IsChecked;
         }
 
+        private void setMirror(object sender, RoutedEventArgs e)
+        {
+            imgScaleTransform.ScaleX = chkMirror.IsChecked ? -1 : 1;
+        }
+
         private void player_MediaEnded(object sender, RoutedEventArgs e)
         {
             player.Close();

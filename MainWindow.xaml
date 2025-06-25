@@ -11,7 +11,12 @@
         <SolidColorBrush Opacity="0" Color="White"/>
     </Window.Background>
     <Grid>
-        <Image x:Name="img" gif:ImageBehavior.AnimatedSource="/QB_res/QB.gif" >
+        <Image x:Name="img" gif:ImageBehavior.AnimatedSource="/QB_res/QB.gif" RenderTransformOrigin="0.5,0.5" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform x:Name="imgScaleTransform" ScaleX="1"/>
+                </TransformGroup>
+            </Image.RenderTransform>
             <Image.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="关于作者">
@@ -22,6 +27,7 @@
                         <MenuItem/>
                     </MenuItem>
                     <MenuItem Header="调整大小" Click="resize"/>
+                    <MenuItem x:Name="chkMirror" Header="镜像翻转" Click="setMirror" IsCheckable="True"/>
                     <MenuItem Header="自定义表情" Click="openFolder"/>
                     <MenuItem x:Name="chkMute" Header="静音" Click="mute" IsCheckable="True"/>
                     <MenuItem Header="关闭" Click="exit"/>
